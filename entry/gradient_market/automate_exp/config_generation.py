@@ -190,7 +190,7 @@ def generate_baseline_configs(output_dir):
     for (ds, agg) in itertools.product(datasets, aggregations):
         for split in split_methods:
             config = copy.deepcopy(BASE_CONFIG_TEMPLATE)
-            exp_id = f"baseline_{ds.lower()}_{split.lower()}"
+            exp_id = f"baseline_{ds.lower()}_{split.lower()}_{agg}"
             if split == 'NonIID': exp_id += f"_a{config['data_split']['dirichlet_alpha']}"
 
             config['experiment_id'] = exp_id
@@ -229,7 +229,7 @@ def generate_backdoor_attack_configs(output_dir):
         config = copy.deepcopy(BASE_CONFIG_TEMPLATE)
         rate_pct = int(rate * 100)
         poison_rates_pct = int(poison_rate * 100)
-        exp_id = f"{BACKDOOR}_{ds.lower()}_{agg.lower()}_adv{rate_pct}pct_t{target}_prate{poison_rates_pct}pct"
+        exp_id = f"{BACKDOOR}_{ds.lower()}_{agg.lower()}_adv{rate_pct}pct_t{target}_trigger_{trigger}_prate{poison_rates_pct}pct"
 
         config['experiment_id'] = exp_id
         config['dataset_name'] = ds
@@ -371,7 +371,7 @@ def generate_discovery_configs(output_dir):
 
     for ds, quality, buyer_mode, agg in itertools.product(datasets, qualities, buyer_modes, aggregations):
         config = copy.deepcopy(BASE_CONFIG_TEMPLATE)
-        exp_id = f"discovery_{ds.lower()}_q{quality}_{buyer_mode}"
+        exp_id = f"discovery_{ds.lower()}_q{quality}_{buyer_mode}_{agg}"
 
         config['experiment_id'] = exp_id
         config['dataset_name'] = ds
