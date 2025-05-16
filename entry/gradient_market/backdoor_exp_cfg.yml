@@ -1,0 +1,43 @@
+# config.yml
+dataset_name: "FMNIST"
+n_sellers: 30
+adv_rate: 0.2
+global_rounds: 1000
+backdoor_target_label: 0
+trigger_type: "blended_patch"
+exp_name: "Experiment1"
+poison_test_sample: 5000
+local_epoch: 2
+poison_strength: 0.7
+local_lr: 0.001
+trigger_rate: 0.25
+gradient_manipulation_mode: "single"
+model_arch: "LENET"
+seed: 42
+aggregation_method: "martfl"
+gpu_ids: "7"
+is_sybil: true
+sybil_mode: "mimic"
+bkd_loc: "bottom_right"
+data_split_mode: "NonIID"
+buyer_percentage: 0.003
+change_base: "True"
+sybil_params:
+  is_sybil: true
+  sybil_mode: "mimic"
+  alpha: 0.5
+  amplify_factor: 2.0
+  cost_scale: 1.5
+  adv_rate: 0.2
+local_training_params:
+  lr: 0.001
+  epochs: 2
+  optimizer: "SGD"
+  weight_decay: 0.0005
+  momentum: 0.9
+local_attack_params:
+  target_label: 0
+  trigger_type: "blended_patch"
+  poison_strength: 0.7
+  trigger_rate: 0.1
+  gradient_manipulation_mode: "single"
