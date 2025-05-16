@@ -1,7 +1,4 @@
-# Benchmarking Robust Aggregation in Decentralized Gradient Marketplaces
-
-This repository provides the official implementation of the paper:  
-**[Benchmarking Robust Aggregation in Decentralized Gradient Marketplaces](link-to-paper-if-available)**
+# This repository provides the official implementation of our code:  
 
 ![System Overview](fig/dm_system_design.png)
 
